@@ -3,3 +3,5 @@ node_modules/
 /client/build
 
 /client/.env*
+
+config/default.json
