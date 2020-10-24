@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from 'react';
+import React, { Fragment, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
 
@@ -11,6 +11,15 @@ const initialState = {
 
 const ContactForm = (props) => {
   const contactContext = useContext(ContactContext);
+  const { addContact, updateContact, clearCurrent, current } = contactContext;
+
+  useEffect(() => {
+    if (current !== null) {
+      setContact(current);
+    } else {
+      setContact(initialState);
+    }
+  }, [current]);
 
   const [contact, setContact] = useState(initialState);
 
@@ -22,15 +31,23 @@ const ContactForm = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    contactContext.addContact(contact);
-    setContact(initialState);
+    if (current === null) {
+      addContact(contact);
+    } else {
+      updateContact(contact);
+    }
+    clearAll();
+  };
+
+  const clearAll = () => {
+    clearCurrent();
   };
 
   return (
     <Fragment>
       <form onSubmit={onSubmit}>
         {/* <form> */}
-        <h2 className='text-primary'>Add Contact</h2>
+        <h2 className='text-primary'>{current ? 'Edit Contact' : 'Add Contact'}</h2>
         <input
           type='text'
           name='name'
@@ -73,10 +90,20 @@ const ContactForm = (props) => {
         <div>
           <input
             type='submit'
-            value='Add Contact'
+            value={current ? 'Edit Contact' : 'Add Contact'}
             className='btn btn-primary btn-block'
           />
         </div>
+        {current && (
+          <div>
+            <button
+              className='btn btn-DeviceLightEvent btn-block'
+              onClick={clearAll}
+            >
+              Clear
+            </button>
+          </div>
+        )}
       </form>
     </Fragment>
   );
