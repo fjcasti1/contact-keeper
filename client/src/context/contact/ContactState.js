@@ -52,6 +52,10 @@ const ContactState = (props) => {
 
   // Update Contact
   // Delete Contact
+  const deleteContact = (contactID) => {
+    // const contact = Contact.findByIdAndDelete(contactID);
+    dispatch({ type: DELETE_CONTACT, payload: contactID });
+  };
   // Set Current Contact
   // Clear Current Contact
   // Filter Contact
@@ -62,6 +66,7 @@ const ContactState = (props) => {
       value={{
         contacts: state.contacts,
         addContact,
+        deleteContact,
       }}
     >
       {props.children}
