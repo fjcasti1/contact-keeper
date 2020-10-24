@@ -10,17 +10,21 @@ const initialState = {
   password2: '',
 };
 
-const Register = () => {
+const Register = (props) => {
   // const alertContext
   const { setAlert } = useContext(AlertContext);
-  const { register, error, clearErrors } = useContext(AuthContext);
+  const { register, error, clearErrors, isAuthenticated } = useContext(AuthContext);
 
   useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/');
+    }
     if (error) {
       setAlert(error, 'danger');
       clearErrors();
     }
-  }, [error]);
+    // eslint-disable-next-line
+  }, [isAuthenticated, error]);
 
   const [user, setUser] = useState(initialState);
 
