@@ -10,8 +10,9 @@ const initialState = {
 };
 
 const ContactForm = (props) => {
-  const contactContext = useContext(ContactContext);
-  const { addContact, updateContact, clearCurrent, current } = contactContext;
+  const { addContact, updateContact, clearCurrent, current } = useContext(
+    ContactContext,
+  );
 
   useEffect(() => {
     if (current !== null) {

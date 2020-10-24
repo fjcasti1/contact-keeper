@@ -11,7 +11,6 @@ const initialState = {
 };
 
 const Register = (props) => {
-  // const alertContext
   const { setAlert } = useContext(AlertContext);
   const { register, error, clearErrors, isAuthenticated } = useContext(AuthContext);
 

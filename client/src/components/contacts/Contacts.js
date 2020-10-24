@@ -4,9 +4,7 @@ import ContactItem from './ContactItem';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Contacts = () => {
-  const contactContext = useContext(ContactContext);
-
-  const { contacts, filtered } = contactContext;
+  const { contacts, filtered } = useContext(ContactContext);
 
   if (contacts.length === 0) {
     return <h4>Please add a contact</h4>;

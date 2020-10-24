@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
 
 const ContactFilter = (props) => {
-  const contactContext = useContext(ContactContext);
+  const { filtered, filterContacts, clearFilter } = useContext(ContactContext);
 
   const text = useRef('');
-
-  const { filtered, filterContacts, clearFilter } = contactContext;
 
   useEffect(() => {
     if (filtered === null) {
