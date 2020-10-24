@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import AlertContext from '../../context/alert/alertContext';
+import AuthContext from '../../context/auth/authContext';
 
 const initialState = {
   name: '',
@@ -12,6 +13,14 @@ const initialState = {
 const Register = () => {
   // const alertContext
   const { setAlert } = useContext(AlertContext);
+  const { register, error, clearErrors } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (error) {
+      setAlert(error, 'danger');
+      clearErrors();
+    }
+  }, [error]);
 
   const [user, setUser] = useState(initialState);
 
@@ -25,11 +34,11 @@ const Register = () => {
     e.preventDefault();
     // register(user);
     if (name === '' || email === '' || password === '' || password2 === '') {
-      setAlert(' Please enter all fields', 'danger');
+      setAlert('Please enter all fields', 'danger');
     } else if (password !== password2) {
-      setAlert(' Passwords must match', 'danger');
+      setAlert('Passwords must match', 'danger');
     } else {
-      console.log('Register');
+      register({ name, email, password });
     }
   };
 
