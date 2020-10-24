@@ -9,8 +9,8 @@ const Contacts = () => {
 
   return (
     <Fragment>
-      {contacts.map((contact) => (
-        <ContactItem contact={contact} />
+      {contacts.map((contact, index) => (
+        <ContactItem key={index} contact={contact} />
       ))}
     </Fragment>
   );
