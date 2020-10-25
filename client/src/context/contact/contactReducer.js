@@ -8,6 +8,7 @@ import {
   CLEAR_CURRENT,
   SET_ALERT,
   REMOVE_ALERT,
+  CONTACT_ERROR,
 } from '../types';
 
 export default (state, action) => {
@@ -53,6 +54,12 @@ export default (state, action) => {
         ...state,
         filtered: null,
       };
+    case CONTACT_ERROR:
+      return {
+        ...state,
+        error: payload,
+      };
+
     default:
       return state;
   }
