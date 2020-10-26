@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import AlertContext from '../../context/alert/alertContext';
 
-const Alerts = (props) => {
+const Alerts = () => {
   const { alerts } = useContext(AlertContext);
   return (
     alerts.length > 0 &&
@@ -13,7 +12,5 @@ const Alerts = (props) => {
     ))
   );
 };
-
-Alerts.propTypes = {};
 
 export default Alerts;

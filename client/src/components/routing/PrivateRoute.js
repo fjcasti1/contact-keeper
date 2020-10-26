@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import authContext from '../../context/auth/authContext';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -19,7 +18,5 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     />
   );
 };
-
-PrivateRoute.propTypes = {};
 
 export default PrivateRoute;

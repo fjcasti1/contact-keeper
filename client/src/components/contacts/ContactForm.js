@@ -1,5 +1,4 @@
 import React, { Fragment, useContext, useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
 
 const initialState = {
@@ -9,7 +8,7 @@ const initialState = {
   type: 'personal',
 };
 
-const ContactForm = (props) => {
+const ContactForm = () => {
   const { addContact, updateContact, clearCurrent, current } = useContext(
     ContactContext,
   );

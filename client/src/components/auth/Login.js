@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import authContext from '../../context/auth/authContext';
 import alertContext from '../../context/alert/alertContext';
 
@@ -64,7 +63,5 @@ const Login = (props) => {
     </div>
   );
 };
-
-Login.propTypes = {};
 
 export default Login;

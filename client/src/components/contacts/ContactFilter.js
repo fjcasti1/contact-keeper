@@ -1,8 +1,7 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
 
-const ContactFilter = (props) => {
+const ContactFilter = () => {
   const { filtered, filterContacts, clearFilter } = useContext(ContactContext);
 
   const text = useRef('');
@@ -11,6 +10,7 @@ const ContactFilter = (props) => {
     if (filtered === null) {
       text.current.value = '';
     }
+    // eslint-disable-next-line
   }, []);
 
   const onChange = (e) => {
