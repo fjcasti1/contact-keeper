@@ -15,7 +15,7 @@ const Login = (props) => {
     if (isAuthenticated) {
       props.history.push('/');
     }
-    if (error) {
+    if (error && error !== 'Not authorized') {
       setAlert(error, 'danger');
       clearErrors();
     }
