@@ -37,6 +37,7 @@ const ContactForm = () => {
       updateContact(contact);
     }
     clearAll();
+    setContact(initialState);
   };
 
   const clearAll = () => {
