@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const config = require('config');
 
 module.exports = function (req, res, next) {
   // Get token from header
@@ -10,7 +9,7 @@ module.exports = function (req, res, next) {
     return res.status(401).json({ msg: 'Not authorized' });
   }
   try {
-    const decoded = jwt.verify(token, config.get('jwtSecret'));
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Assign the decoded user to the request to have access in our protected routes
     req.user = decoded.user;

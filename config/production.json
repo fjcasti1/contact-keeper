@@ -1,4 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://kikokiko:kikokikopass@contactkeeper.t39mk.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "myjwtsecret"
-}
